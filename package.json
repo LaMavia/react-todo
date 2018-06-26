@@ -1,0 +1,28 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "firebase": "^5.1.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "typescript": "^2.9.2",
+    "uuid": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/firebase": "^3.2.1",
+    "@types/react": "^16.4.2",
+    "@types/react-dom": "^16.0.6",
+    "@types/uuid": "^3.4.3",
+    "node-sass": "^4.9.0"
+  }
+}

@@ -1,0 +1,90 @@
+@import "../mixins/_breakpoints";
+:root {
+  --form-field-w: 17rem;
+  --form-field-h: 3rem;
+  --form-field-label-fs: 0.8rem;
+  --form-field-input-h: 2.2rem;
+  --form-field-input-fs: 0.9rem;
+  --form-field-input-bg-c: #ededed;
+  --form-field-mb: 1.5rem;
+  --form-btn-bg-c: #01FF70;
+  --form-btn-shadow-c: #2ECC40;
+}
+
+@include desktop {
+  :root {
+    --form-field-w: 20rem;
+  }
+}
+
+.form {
+  width: 100vw;
+  height: auto;
+  max-height: 100vh;
+  background-color: var(--bg-c);
+  display: flex;
+  flex-flow: column nowrap;
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  &__field {
+    width: var(--form-field-w);
+    height: var(--form-field-h);
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto var(--form-field-mb) auto;  
+    &__label {
+      font-size: var(--form-field-label-fs);
+    }
+
+    &__input {
+      &--text {
+        display: block;
+        appearance: none;
+        -webkit-appearance: none;
+        height: var(--form-field-input-h);
+        font-size: var(--form-field-input-fs);
+        border: none;
+        border-radius: 3px;
+        background-color: var(--form-field-input-bg-c);
+        padding: 0 3%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }    
+  }
+  &__btn {
+    $dy: 4.5px;
+    $dt: .15s;
+    width: var(--form-field-w);
+    height: var(--form-field-input-h);
+    font-size: calc(
+      var(--form-field-input-h) / 2.5
+    ) !important;
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0 auto;
+    font-size: inherit;
+    background-color: var(--form-btn-bg-c);
+    border: none;
+    // border-bottom: var(--form-btn-shadow-c) 5px solid;
+    overflow-x: hidden;
+    color: #fefefe;
+    font-weight: 700;
+    box-shadow: 0 $dy 0px 0px var(--form-btn-shadow-c);
+    border-radius: 3px;
+
+    &:active {
+      transform: translateY($dy);
+      box-shadow: 0 0px 0px 0px var(--form-btn-shadow-c);
+
+      transition: 
+        transform $dt 0s ease-out,
+        box-shadow $dt 0s ease-out
+    }
+  }
+}
