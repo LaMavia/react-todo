@@ -37,12 +37,13 @@ export default class App extends PureComponent<{}, S> {
     this.checkLoggedIn = this.checkLoggedIn.bind(this)
     this.addHandler = this.addHandler.bind(this)
     this.removeHandler = this.removeHandler.bind(this)
+    this.updateTodos = this.updateTodos.bind(this)
   }
 
   addTodo(todo: TodosObj) {
     this.setState({
       todos: Object.assign({}, this.state.todos, todo)
-    })
+    }, this.updateTodos)
   }
 
   removeTodo(id: string) {
@@ -52,11 +53,12 @@ export default class App extends PureComponent<{}, S> {
 
     this.setState({
       todos
-    })
+    }, this.updateTodos)
     
   }
 
   updateTodos() {
+    debugger
     this.state.fb.database().ref(`todos/${(this.state.user as fb.User).uid}`).set(this.state.todos)
   }
 
