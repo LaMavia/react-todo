@@ -1,0 +1,80 @@
+@import "../mixins/_breakpoints";
+
+:root {
+  --nav-h: 6vh;
+  --nav-lh: var(--nav-h); // calc(var(--nav-h) / 1.3)
+  --nav-bg-c: #ededed;
+  --nav-logo-fs: 1.8rem;
+  --nav-items-fs: 0.9rem;
+  --nav-item-w: 5rem;
+  --nav-item-h: var(--nav-h);
+}
+
+@include desktop {
+  :root {
+    --nav-h: 5vh;
+  }
+}
+
+@include phone {
+  :root {
+    --nav-h: 8vh;
+  }
+}
+
+.nav {
+  width: 100vw;
+  height: var(--nav-h);
+  background-color: var(--nav-bg-c);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 3%;
+  overflow: hidden;
+
+  &__logo {
+    font-size: var(--nav-logo-fs);
+    line-height: var(--nav-lh);
+    color: var(--special-c);
+    text-shadow: 
+      .5px 1.7px 2px var(--form-btn-shadow-c),
+      1px 1.5px 1px #2c2c2c,
+      1.2px 1.7px .5px #1a1a1a
+    ;
+  }
+
+  &__links {
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+
+    &__item {
+      line-height: var(--nav-lh);
+      width: var(--nav-item-w);
+      height: 100%;
+
+      &__link {
+        $dt: .15s;
+        color: var(--special-c);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-color: transparent;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: 
+          background-color $dt 0s ease-out,   
+          color $dt 0s ease-out
+        ;
+
+        &:hover, &:focus {
+          background-color: var(--special-c);
+          color: var(--nav-bg-c);
+        }
+      }
+    }
+  }
+}

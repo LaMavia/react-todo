@@ -30,15 +30,15 @@ export default ({ auth }: P) => {
 	return (
 		<form action="" className="form" onSubmit={submitHandler}>
 			<div className="form__field">
-				<label className="label" htmlFor="email">
-					Login
+				<label className="form__field__label" htmlFor="email">
+					Email
 				</label>
 				<input
 					type="email"
 					name="email"
 					id="email"
 					className="form__field__input--text"
-					placeholder="Login"
+					placeholder="Email"
 				/>
 			</div>
 

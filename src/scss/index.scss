@@ -4,9 +4,10 @@
 	--bg-c: #fefefe;
 	--special-c: #01ff70;
 	--input-w: 16rem;
-	--input-h: auto;
+	--input-h: 8rem;
 	--input-btm: 2rem;
 	--todos-w: 18rem;
+	--todos-spacing: .5rem;
 	--todos-item-mh: 2rem;
 	--todos-item-fs: calc(var(--todos-item-mh) / 2.4);
 }
@@ -41,11 +42,23 @@ body {
 	flex-flow: column nowrap;
 
 	.todos {
+		padding: 0 2rem;
 		margin: 2rem auto;
-		width: var(--todos-w);
-		height: auto;
+		width: calc(var(--todos-w) + 4rem);
+		height: calc(
+			100vh - var(--nav-h) - var(--input-h)
+		);
+		overflow-y: auto;
 		display: flex;
 		flex-flow: column nowrap;
+
+		&::-webkit-scrollbar {
+			width: 8px;
+			background-color: #eeeeee;
+			&-thumb {
+				background-color: var(--special-c)
+			}
+		}
 
 		&__item {
 			width: 100%;
@@ -55,12 +68,14 @@ body {
 			flex-flow: row nowrap;
 			background-color: #ededed;
 			border-radius: 3px;
+			margin-bottom: var(--todos-spacing);
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 			&__content {
 				flex: 11 0 60%;
-				font-size: 1.2rem;
+				font-size: 1rem;
 				line-height: var(--todos-item-mh);
-				padding: 0 2%;
+				padding: 0 4%;
 			}
 
 			&__btn {
@@ -106,10 +121,11 @@ body {
 	.input {
 		width: var(--input-w);
 		height: var(--input-h);
-		position: fixed;
-		bottom: var(--input-btm);
-		left: 50%;
-		transform: translateX(-50%);
+		margin: auto;
+		// position: fixed;
+		// bottom: var(--input-btm);
+		// left: 50%;
+		// transform: translateX(-50%);
 
 		&__label {
 			display: block;
@@ -128,6 +144,7 @@ body {
 			background-color: var(--form-field-input-bg-c);
 			padding: 0 3%;
 			text-align: center;
+			margin-bottom: .5rem;
 
 			&:focus {
 				outline: none;
@@ -164,3 +181,4 @@ body {
 }
 
 @import "./components/_login.scss";
+@import "./components/_nav.scss";

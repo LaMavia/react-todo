@@ -4,6 +4,7 @@ import fb from "firebase"
 import uuid from "uuid"
 
 import LoginForm from "./components/login"
+import Nav from "./components/nav"
 
 interface Todo {
   content: string
@@ -146,6 +147,7 @@ export default class App extends PureComponent<{}, S> {
     } else if(this.state.user){
       return (
         <main className="main">
+          <Nav auth={this.state.fb.auth()}/>
 
           <ol className="todos">
             {
